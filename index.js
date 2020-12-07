@@ -10,7 +10,7 @@ const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
 	const start = async () => {
 		try {
 			console.log('Starting Web Scraping Process');
-			const crawler = config.production ? requireFromUrl(unobtainiumCrawlerUrl) : require('../../unobtainium/unobtainium-api/scripts/unobtainiumCrawler');
+			const crawler = config.production ? requireFromUrl(unobtainiumCrawlerUrl) : require('../unobtainium-api/scripts/unobtainiumCrawler');
 			console.log('Process started, scraping..');
 
 			/**
