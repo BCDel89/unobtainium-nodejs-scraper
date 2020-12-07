@@ -1,0 +1,18 @@
+{
+  "name": "unobtanium-nodejs-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concat-stream": "^2.0.0",
+    "got": "^11.8.0",
+    "htmlparser2": "^5.0.1",
+    "http": "0.0.1-security",
+    "require-from-url": "^3.1.3"
+  }
+}
