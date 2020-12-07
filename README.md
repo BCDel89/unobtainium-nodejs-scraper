@@ -17,6 +17,10 @@ cd into the project directory
 ```sh
 cd unobtainium-nodejs-scraper
 ```
+If using NVM synchronize node version
+```sh
+nvm use
+```
 Install the project's dependencies
 ```sh
 npm install
