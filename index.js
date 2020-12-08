@@ -2,7 +2,8 @@
 const requireFromUrl = require('require-from-url/sync');
 const config = require('./config');
 
-const apiUrl = config.production ? 'https://unobtainium.app/' : 'http://localhost:3009/';
+const isProduction = config.env === 'production';
+const apiUrl = isProduction ? 'https://unobtainium.app/' : 'http://localhost:3009/';
 const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
 
 (async () => {
@@ -10,17 +11,12 @@ const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
 	const start = async () => {
 		try {
 			console.log('Starting Web Scraping Process');
-			const crawler = config.production ? requireFromUrl(unobtainiumCrawlerUrl) : require('../unobtainium-api/scripts/unobtainiumCrawler');
+			const crawler = isProduction ? requireFromUrl(unobtainiumCrawlerUrl) : require('../unobtainium-api/scripts/unobtainiumCrawler');
+
 			console.log('Process started, scraping..');
 
-			/**
-			 * options = {
-			 *   batchSize: {number} (how many products to check at a time default is 100)
-			 * }
-			 */
-			// const options = {};
 			const options = {batchSize: config.batchSize || 100, throttle: config.throttle || 0, country: 'US'};
-
+			await crawler.init(config.env, apiUrl);
 			await crawler.startWithOptions(options);
 
 			console.log('Process finished, restarting..');

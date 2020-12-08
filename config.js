@@ -2,7 +2,7 @@
 const env = require('dotenv').config();
 
 module.exports = new function() {
-  this.production = process.env.NODE_ENV || true;
+  this.env = process.env.NODE_ENV || 'production';
 
   // ----------------------------------------------------------------------
 	// v v v v v v v v v v v v CONFIGURABLE OPTIONS v v v v v v v v v v v v v
