@@ -2,7 +2,7 @@
 const requireFromUrl = require('require-from-url/sync');
 const config = require('./config');
 
-const apiUrl = config.production ? 'http://buddycdelaune.com/' : 'http://localhost:3000/';
+const apiUrl = config.production ? 'https://unobtainium.app/' : 'http://localhost:3009/';
 const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
 
 (async () => {
