@@ -42,8 +42,19 @@ this.country = "US";
 ```
 
 ## Usage
+To run in the foreground
 ```sh
 npm start
+```
+
+To run as a process
+```sh
+npm run start:process
+```
+
+To stop the process
+```sh
+npm run stop:process
 ```
 
 
