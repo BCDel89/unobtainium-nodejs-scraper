@@ -9,10 +9,10 @@ module.exports = new function() {
   // ----------------------------------------------------------------------
 
   // How many sites to attempt to process at once can be an integer between 1 - 1000
-  this.batchSize = 25;
+  this.batchSize = 10;
 
   // Time IN SECONDS to wait between batches
-  this.throttle = 1;
+  this.throttle = 2;
 
   // Restrict sites to a specific location, options are: [false, "US", "CAN", "UK", "EUR", "AUS"]
   this.country = "US";
