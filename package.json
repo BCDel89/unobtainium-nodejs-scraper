@@ -6,13 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "start:process": "pm2 start ecosystem.config.js --env production"
+    "start:process": "pm2 start ecosystem.config.js --env production && npx pm2 save && npm run warn:process:stop",
+    "stop:process": "npx pm2 stop unobtainium-nodejs-server && npx pm2 delete unobtainium-nodejs-server && npx pm2 save && npm run warn:process:start",
+    "warn:process:stop": "echo 'To stop the process at any time run: npm run stop:process",
+    "warn:process:start": "echo 'To start the process at any time run: npm run start:process"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
     "got": "^11.8.0",
+    "npx": "^10.2.2",
     "pm2": "^4.5.0",
     "require-from-url": "^3.1.3",
     "user-agents": "^1.0.559"
