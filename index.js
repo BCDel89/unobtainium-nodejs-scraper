@@ -5,6 +5,7 @@ const config = require('./config');
 const isProduction = config.env === 'production';
 const apiUrl = isProduction ? 'https://unobtainium.app/' : 'http://localhost:3009/';
 const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
+let blackList = [];
 
 (async () => {
 
@@ -16,7 +17,7 @@ const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
 			console.log('Process started, scraping..');
 
 			const options = {batchSize: config.batchSize || 100, throttle: config.throttle || 0, country: 'US'};
-			await crawler.init(config.env, apiUrl);
+			await crawler.init(config.env, apiUrl, blackList);
 			await crawler.startWithOptions(options);
 
 			console.log('Process finished, restarting..');
