@@ -1,9 +1,11 @@
 'use strict';
-const env = require('dotenv').config();
+const fs = require('fs');
+const env = require('dotenv');
+const tmpEnv = env.parse((fs.readFileSync('.env') || '').toString());
+
+if (tmpEnv.NODE_ENV === 'dev') env.config();
 
 module.exports = new function() {
-  this.env = process.env.NODE_ENV || 'production';
-
   // ----------------------------------------------------------------------
 	// v v v v v v v v v v v v CONFIGURABLE OPTIONS v v v v v v v v v v v v v
   // ----------------------------------------------------------------------
