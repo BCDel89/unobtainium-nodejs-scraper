@@ -1,7 +1,8 @@
 {
   "name": "unobtanium-nodejs-scraper",
   "version": "1.2.0",
-  "description": "",
+  "description": "Simple NodeJs Scraper that will help the Unobtainium Community stay up-to-date with the latest stock information for products.",
+  "repository": "https://github.com/BCDel89/unobtainium-nodejs-scraper.git",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +13,8 @@
     "warn:process:start": "echo 'To start the process at any time run, npm run start:process'",
     "build:pkg": "node scripts/buildPackage.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Buddy C Delaune",
+  "license": "MIT License. Copyright (c) 2020 Buddy C Delaune",
   "dependencies": {
     "dotenv": "^8.2.0",
     "got": "^11.8.0",
