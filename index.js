@@ -6,7 +6,6 @@ const env = process.env.NODE_ENV || 'production';
 const shouldRequireFromServer = env === 'production';
 const apiUrl = process.env.API_URL || 'https://unobtainium.app/';
 const unobtainiumCrawlerUrl = apiUrl + 'public/unobtainiumCrawler.js';
-const blackListResetCycleLimit = 250;
 
 let blackList = [];
 let cycles = 0;
@@ -18,7 +17,6 @@ let cycles = 0;
 			cycles += 1;
 			console.log('Starting Web Scraping Process with configuration:', config);
 			console.log('Beginning cycle: ', cycles);
-			if (cycles % 250 === 0) blackList = [];
 
 			const resolves = require('require-from-url/resolves');
 			Object.keys(resolves).forEach(k => delete resolves[k]);
