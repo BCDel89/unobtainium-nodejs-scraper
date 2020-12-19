@@ -15,7 +15,7 @@ module.exports = new function () {
 	// ----------------------------------------------------------------------
 
 	// How many sites to attempt to process at once can be an integer between 1 - 1000
-	this.batchSize = 10;
+	this.batchSize = 15;
 
 	// Time IN SECONDS to wait between batches
 	this.throttle = 2;
