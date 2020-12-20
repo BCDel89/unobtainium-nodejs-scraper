@@ -26,5 +26,8 @@
     "fs": "0.0.1-security",
     "glob": "^7.1.6",
     "pkg": "^4.4.9"
+  },
+  "optionalDependencies": {
+    "pm2": "^4.5.1"
   }
 }
