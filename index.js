@@ -29,7 +29,7 @@ let cycles = 0;
 			console.log('Process started, scraping..');
 
 			const options = {batchSize: config.batchSize || 25, throttle: config.throttle || 0};
-			await crawler.init(env, apiUrl, blackList);
+			blackList = await crawler.init(env, apiUrl, blackList);
 			await crawler.startWithOptions(options);
 
 			console.log('Process finished, restarting..');
