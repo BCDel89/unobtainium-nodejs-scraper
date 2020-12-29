@@ -59,6 +59,9 @@ npm run start:process
 npm run stop:process
 ```
 
+#### Logs
+Use `npx pm2 logs unobtainium-nodejs-scraper` to find location (Usually in `/home/$USER/.pm2/logs/unobtainium-nodejs-scraper-out.log`)
+
 ### To run as a process (Any linux with `systemd`)
 `systemd` will automatically start/stop with computer itself and auto restart on crash
 
