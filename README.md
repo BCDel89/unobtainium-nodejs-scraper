@@ -42,20 +42,63 @@ this.country = "US";
 ```
 
 ## Usage
-To run in the foreground
+### To run in the foreground
 ```sh
 npm start
 ```
 
-To run as a process
+### To run as a process (Cross platform suing `pm2`)
+`pm2` will automatically handle start/stop but you have to manually start/stop `pm2`
+#### Start
 ```sh
 npm run start:process
 ```
 
-To stop the process
+#### Stop
 ```sh
 npm run stop:process
 ```
 
+### To run as a process (Any linux with `systemd`)
+`systemd` will automatically start/stop with computer itself and auto restart on crash
+
+#### Setup
+Create a file in `/etc/systemd/system/` (you can name it anything as long as extension is `.service`). Keep in mind file name for later
+```sh
+[Unit]
+Description=Stock Bot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/unobtainium-nodejs-scraper/
+ExecStart=/usr/bin/node index.js
+User=stockbot
+Group=stockbot
+RemainAfterExit=no
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+Replace `/unobtainium-nodejs-scraper/` with the path of where this is saved
+Replace `/usr/bin/node` (Default for all debian based linux) with the path of nodejs (Use `whereis node` to find that out)
+Set `User` and `Group` to the user (and their group) that this service will run as (remember the principle of least privilege)
+
+Once file is created have systemd recognize it: `systemctl daemon-reload`
+
+#### Follow system actions (startup/shutdown)
+`systemctl enable stockbot.service`
+
+#### Start
+`systemctl start stockbot.service`
+
+#### Stop
+`systemctl stop stockbot.service`
+
+#### Logging
+Live logs: `journalctl -fu stockbot.service`
+
+One time log: `journalctl -u stockbot.service`
 
 MIT License. Copyright (c) 2020 Buddy C Delaune
