@@ -70,7 +70,7 @@ Create a file in `/etc/systemd/system/` (you can name it anything as long as ext
 ```sh
 [Unit]
 Description=Stock Bot
-After=network.target
+After=network-online.target
 
 [Service]
 Type=simple
